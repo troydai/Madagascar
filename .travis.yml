@@ -7,5 +7,6 @@ install:
     - pip install azure-cli
 script:
     - ./package.sh
-    - az --version
-    - az container list
+after_success:
+    - bash -c "[[ -n \"$TRAVIS_TAG\" ]] && az storage blob upload -f madagascar.zip -n madagascar-${TRAVIS_TAG}.zip -c app || echo 'Skip publishing.'"
+    
