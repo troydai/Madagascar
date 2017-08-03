@@ -1,3 +1,4 @@
 .azure-config/
 env/
 *.pyc
+madagascar.zip
